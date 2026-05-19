@@ -1,15 +1,12 @@
 section .data
-const1 equ 5
 var1 dd 7
-
 section .text
 global _start
-
+extern mult10
 _start:
-mov eax, const1
-mov ebx, [var1]
-add eax, ebx
-
+push dword[var1]
+call mult10
+mov dword [var1], eax
 L_exit:
 mov eax, 1
 xor ebx, ebx
